@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route, Link} from 'react-router-dom'
+
 
 import Sidebar from './sidebar';
 import AddNote from "./addnote";
@@ -27,12 +29,12 @@ class App extends Component {
     }
     handleAddNewNote = () => {
         const notesArr = this.state.notes;
-        notesArr.push({name:'asd',value:''});
+        notesArr.push({name:'',value:''});
         this.setState({notes:notesArr})
     }
     updateTextArea =(e) => {
         const notesArr = this.state.notes;
-        notesArr[this.state.selected] = {name:"asd",value:e.target.value};
+        notesArr[this.state.selected] = {name:e.target.value.substring(0,10),value:e.target.value};
 
         this.setState({content:e.target.value,notes:notesArr})
 
@@ -40,7 +42,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+          <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Notes List</h1>
@@ -50,7 +52,7 @@ class App extends Component {
         <textarea className="App-intro" value={this.state.content} onChange={this.updateTextArea} >
 
         </textarea>
-      </div>
+          </div>
     );
   }
 
