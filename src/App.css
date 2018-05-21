@@ -21,6 +21,11 @@
   color: white;
 }
 
+.menu {
+  display: inline-block;
+  padding: 10px;
+}
+
 .App-title {
   font-size: 1.5em;
 }

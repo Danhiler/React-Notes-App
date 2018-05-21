@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
 
 import App from "./App";
+import About from "./About";
 
 class ParentApp extends Component {
     constructor(){
@@ -16,17 +17,19 @@ class ParentApp extends Component {
     render() {
         return (
             <BrowserRouter>
-
-
                 <div className="parentApp">
+
             <nav>
-            <link onClick={this.state.pages[0]}>
-                asd , asd
+                <Link to="/" className='menu' >Home</Link>
+                <Link to="/about" className='menu'>About</Link>
             </nav>
-                <App />
+
+                <Route exact path ="/" component={App}/>
+                <Route  path ="/about" component={About}/>
+
                 </div>
             </BrowserRouter>
-        );
+        )
     }
 
 }
